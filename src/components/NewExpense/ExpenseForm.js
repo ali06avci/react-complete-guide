@@ -12,17 +12,17 @@ const ExpenseForm = (props) => {
     enteredDate: "",
   }); */
 
-  const titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value);
+  const titleChangeHandler = (e) => {
+    setEnteredTitle(e.target.value);
 
-    //setuserInput({ ...userInput, enteredTitle: event.target.value });
+    //setuserInput({ ...userInput, enteredTitle: event.target.valu e });
 
     /*  setuserInput((prevState) => {
       return { ...prevState, enteredTitle: event.target.value };
     }); */
   };
-  const amountChangeHandler = (event) => {
-    setEnteredAmount(event.target.value);
+  const amountChangeHandler = (e) => {
+    setEnteredAmount(e.target.value);
 
     /* setuserInput({
       ...userInput,
@@ -33,8 +33,8 @@ const ExpenseForm = (props) => {
       return { ...prevState, enteredAmount: event.target.value };
     }); */
   };
-  const dateChangeHandler = (event) => {
-    setEnteredDate(event.target.value);
+  const dateChangeHandler = (e) => {
+    setEnteredDate(e.target.value);
 
     /* setuserInput({
       ...userInput,
@@ -46,8 +46,8 @@ const ExpenseForm = (props) => {
     }); */
   };
 
-  const submitHandler = (event) => {
-    event.preventDefault();
+  const submitHandler = (e) => {
+    e.preventDefault();
 
     const expenseData = {
       title: enteredTitle,
@@ -68,10 +68,12 @@ const ExpenseForm = (props) => {
           <label>Title</label>
           <input
             type="text"
+            /*  two way binding */
             value={enteredTitle}
             onChange={titleChangeHandler}
           />
         </div>
+
         <div className="new-expense__control">
           <label>Amount</label>
           <input
