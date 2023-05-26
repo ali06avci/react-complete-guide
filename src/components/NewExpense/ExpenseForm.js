@@ -12,42 +12,38 @@ const ExpenseForm = (props) => {
     enteredDate: "",
   }); */
 
-  const titleChangeHandler = (e) => {
-    setEnteredTitle(e.target.value);
+  const titleChangeHandler = (e) => setEnteredTitle(e.target.value);
 
-    //setuserInput({ ...userInput, enteredTitle: event.target.valu e });
+  //setuserInput({ ...userInput, enteredTitle: event.target.valu e });
 
-    /*  setuserInput((prevState) => {
+  /*  setuserInput((prevState) => {
       return { ...prevState, enteredTitle: event.target.value };
-    }); */
-  };
-  const amountChangeHandler = (e) => {
-    setEnteredAmount(e.target.value);
+    }); // this is the safer way to ensure that you always operate on the latest state snapshot.//*/
 
-    /* setuserInput({
+  const amountChangeHandler = (e) => setEnteredAmount(e.target.value);
+
+  /* setuserInput({
       ...userInput,
       enteredAmount: event.target.value,
     }); */
 
-    /*  setuserInput((prevState) => {
+  /*  setuserInput((prevState) => {
       return { ...prevState, enteredAmount: event.target.value };
     }); */
-  };
-  const dateChangeHandler = (e) => {
-    setEnteredDate(e.target.value);
 
-    /* setuserInput({
+  const dateChangeHandler = (e) => setEnteredDate(e.target.value);
+
+  /* setuserInput({
       ...userInput,
       enteredDate: event.target.value,
     }); */
 
-    /* setuserInput((prevState) => {
+  /* setuserInput((prevState) => {
       return { ...prevState, enteredDate: event.target.value };
     }); */
-  };
 
   const submitHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //prevent browser default action
 
     const expenseData = {
       title: enteredTitle,
@@ -96,6 +92,9 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>
+          Cancel
+        </button>
         <button type="submit"> Add Expense</button>
       </div>
     </form>
