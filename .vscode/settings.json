@@ -1,4 +1,6 @@
 {
   "editor.formatOnSave": true,
-  "notebook.formatOnSave.enabled": false
+  "notebook.formatOnSave.enabled": false,
+  "editor.fontSize": 12,
+  "editor.fontFamily": "IntelOne Mono"
 }

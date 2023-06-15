@@ -42,14 +42,28 @@ const ExpenseForm = (props) => {
       return { ...prevState, enteredDate: event.target.value };
     }); */
 
+  /* //alternative approach : Creating A Shared Handler Function
+  const inputChangeHandler = (identifier, value) => {
+    if (identifier === "title") {
+      setEnteredTitle(value);
+    } else if (identifier === "date") {
+      setEnteredDate(value);
+    } else {
+      setEnteredAmount(value);
+    }
+  }; */
+
   const submitHandler = (e) => {
     e.preventDefault(); //prevent browser default action
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
+
+    console.log(expenseData);
+
     props.onSaveExpenseData(expenseData);
     //clear the form
     setEnteredTitle("");
@@ -67,6 +81,11 @@ const ExpenseForm = (props) => {
             /*  two way binding */
             //value={enteredTitle}
             onChange={titleChangeHandler}
+
+            /* //alternative approach : Creating A Shared Handler Function
+            onChange={(event) =>
+              inputChangeHandler("title", event.target.value)
+            }*/
           />
         </div>
 
@@ -78,6 +97,11 @@ const ExpenseForm = (props) => {
             min="0.01"
             step="0.01"
             onChange={amountChangeHandler}
+
+            /*//alternative approach : Creating A Shared Handler Function
+            onChange={(event) =>
+              inputChangeHandler("amount", event.target.value)
+            }*/
           />
         </div>
         <div className="new-expense__control">
@@ -86,8 +110,13 @@ const ExpenseForm = (props) => {
             type="date"
             value={enteredDate}
             min="2019-01-01"
-            max="2023-12-31"
+            max="2022-12-31"
             onChange={dateChangeHandler}
+
+            /*//alternative approach : Creating A Shared Handler Function
+            onChange={(event) =>
+              inputChangeHandler("date", event.target.value)
+            }*/
           />
         </div>
       </div>
