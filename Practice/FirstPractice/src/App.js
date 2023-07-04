@@ -29,7 +29,20 @@ function App() {
   return (
     <div>
       <Header />
+
+      {/* used the map() method to rendering list */}
       <ul id="concepts">
+        {concepts.map((arr) => (
+          <Concept
+            key={arr.title}
+            title={arr.title}
+            image={arr.image}
+            description={arr.description}
+          />
+        ))}
+      </ul>
+
+      {/* <ul id="concepts">
         <Concept
           title={concepts[0].title}
           image={concepts[0].image}
@@ -37,7 +50,7 @@ function App() {
         />
         <Concept
           title={concepts[1].title}
-          image={concepts[2].image}
+          image={concepts[1].image}
           description={concepts[1].description}
         />
         <Concept
@@ -45,7 +58,7 @@ function App() {
           image={concepts[2].image}
           description={concepts[2].description}
         />
-      </ul>
+      </ul> */}
     </div>
   );
 }
